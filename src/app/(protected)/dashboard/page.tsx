@@ -1,7 +1,19 @@
-import React from 'react';
+import { auth } from '@/auth';
+import { redirect } from 'next/navigation';
+import LogoutButton from '@/components/logout-button';
 
-const DashboardPage = () => {
-    return <div>DashboardPage</div>;
-};
+export default async function DashboardPage() {
+    const session = await auth();
 
-export default DashboardPage;
+    if (!session) {
+        redirect('/login');
+        return;
+    }
+
+    return (
+        <div className="container">
+            <pre>{JSON.stringify(session, null, 2)}</pre>
+            <LogoutButton />
+        </div>
+    );
+}
