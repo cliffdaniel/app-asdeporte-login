@@ -7,13 +7,19 @@ export default async function DashboardPage() {
 
     if (!session) {
         redirect('/login');
-        return;
     }
 
     return (
-        <div className="container">
-            <pre>{JSON.stringify(session, null, 2)}</pre>
-            <LogoutButton />
+        <div className="min-h-screen bg-gray-100 flex items-center justify-center">
+            <div className="container mx-auto p-6 bg-white shadow-md rounded-lg">
+                <h1 className="text-2xl font-bold mb-4 text-gray-800">
+                    Dashboard
+                </h1>
+                <pre className="bg-gray-200 p-4 mb-4 rounded-md text-gray-700 overflow-auto">
+                    {JSON.stringify(session, null, 2)}
+                </pre>
+                <LogoutButton />
+            </div>
         </div>
     );
 }

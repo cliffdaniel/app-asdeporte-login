@@ -50,15 +50,17 @@ const FormLogin = ({ isVerified, OAuthAccountNotLinked }: FormLoginProps) => {
     }
 
     return (
-        <div className="max-w-52">
-            <h1 className="mb-5 text-center text-2xl">Login</h1>
+        <div className="p-6 bg-white shadow-lg rounded-lg max-w-lg sm:max-w-md md:max-w-md lg:max-w-lg w-full mx-auto">
+            <h1 className="text-3xl font-semibold text-center mb-6 text-gray-800">
+                Iniciar Sesión
+            </h1>
             {isVerified && (
-                <p className="text-center text-green-500 mb-5 text-sm">
+                <p className="text-center text-green-600 mb-4 text-sm">
                     Correo verificado, ahora puedes iniciar sesión.
                 </p>
             )}
             {OAuthAccountNotLinked && (
-                <p className="text-center text-red-500 mb-5 text-sm">
+                <p className="text-center text-red-600 mb-4 text-sm">
                     Para confirmar tu identidad, inicia sesión con la misma
                     cuenta que utilizaste originalmente.
                 </p>
@@ -66,19 +68,22 @@ const FormLogin = ({ isVerified, OAuthAccountNotLinked }: FormLoginProps) => {
             <Form {...form}>
                 <form
                     onSubmit={form.handleSubmit(onSubmit)}
-                    className="space-y-8"
+                    className="space-y-6"
                 >
                     <FormField
                         control={form.control}
                         name="email"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Correo:</FormLabel>
+                                <FormLabel className="text-gray-700">
+                                    Correo Electrónico:
+                                </FormLabel>
                                 <FormControl>
                                     <Input
-                                        placeholder="email"
+                                        placeholder="Ingresa tu correo electrónico"
                                         type="email"
                                         {...field}
+                                        className="border-gray-300 rounded-md shadow-sm focus:border-brand-8 focus:ring focus:ring-brand-8 focus:ring-opacity-50"
                                     />
                                 </FormControl>
                                 <FormMessage />
@@ -90,25 +95,37 @@ const FormLogin = ({ isVerified, OAuthAccountNotLinked }: FormLoginProps) => {
                         name="password"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Contraseña:</FormLabel>
+                                <FormLabel className="text-gray-700">
+                                    Contraseña:
+                                </FormLabel>
                                 <FormControl>
                                     <Input
-                                        placeholder="password"
+                                        placeholder="Ingresa tu contraseña"
                                         type="password"
                                         {...field}
+                                        className="border-gray-300 rounded-md shadow-sm focus:border-brand-8 focus:ring focus:ring-brand-8 focus:ring-opacity-50"
                                     />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
                         )}
                     />
-                    {error && <FormMessage>{error}</FormMessage>}
-                    <Button type="submit" disabled={isPending}>
-                        Enviar
+                    {error && (
+                        <FormMessage className="text-red-600">
+                            {error}
+                        </FormMessage>
+                    )}
+                    <Button
+                        type="submit"
+                        disabled={isPending}
+                        className="w-full bg-brand-8 text-white py-2 px-4 rounded-md hover:bg-brand-9 focus:outline-none focus:ring-2 focus:ring-brand-8 focus:ring-opacity-50"
+                    >
+                        {isPending ? 'Cargando...' : 'Iniciar Sesión'}
                     </Button>
                 </form>
             </Form>
         </div>
     );
 };
+
 export default FormLogin;
