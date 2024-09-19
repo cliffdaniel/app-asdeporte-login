@@ -4,17 +4,12 @@ import authConfig from './auth.config';
 
 const { auth } = NextAuth(authConfig);
 
-const publicRoutes = ['/', '/prices'];
-const authRoutes = ['/login', '/register'];
-const apiAuthPrefix = '/api/auth';
+const publicRoutes = ['/'];
+const authRoutes = ['/login'];
 
 export default auth((req) => {
     const { nextUrl } = req;
     const isLoggedIn = !!req.auth;
-
-    if (nextUrl.pathname.startsWith(apiAuthPrefix)) {
-        return NextResponse.next();
-    }
 
     if (publicRoutes.includes(nextUrl.pathname)) {
         return NextResponse.next();
