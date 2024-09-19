@@ -11,7 +11,7 @@ export default async function DashboardPage() {
 
     return (
         <div className="p-6 min-h-screen bg-gray-100 flex items-center justify-center">
-            <div className="container mx-auto bg-white shadow-md rounded-lg">
+            <div className="container p-6 mx-auto bg-white shadow-md rounded-lg">
                 <h1 className="text-2xl font-bold mb-4 text-gray-800">
                     Dashboard
                 </h1>
