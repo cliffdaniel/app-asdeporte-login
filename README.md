@@ -34,8 +34,10 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 To set up the database, run the following commands:
 
+```bash
 npx prisma migrate dev --name init
 npx ts-node --project tsconfig.seed.json src/seed.ts
+```
 
 ## User list
 
