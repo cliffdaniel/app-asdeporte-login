@@ -40,7 +40,6 @@ const FormLogin = ({ isVerified, OAuthAccountNotLinked }: FormLoginProps) => {
     async function onSubmit(values: z.infer<typeof loginSchema>) {
         setError(null);
         startTransition(async () => {
-            console.log(values);
             const response = await loginAction(values);
             if (response.error) {
                 setError(response.error);
