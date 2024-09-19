@@ -16,6 +16,9 @@ const geistMono = localFont({
 export const metadata: Metadata = {
     title: 'Login App',
     description: 'Login App',
+    icons: {
+        icon: '/favicon.png',
+    },
 };
 
 export default function RootLayout({
