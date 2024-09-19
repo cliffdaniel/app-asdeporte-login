@@ -1,4 +1,16 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+=========
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
+Versión 0.1.0
+
+## Node.js Version
+
+This project requires Node.js version 18. You can use [nvm](https://github.com/nvm-sh/nvm) to manage Node.js versions. To install the correct version, run:
+
+```bash
+nvm use 18
+nvm install
+```
 
 ## Getting Started
 
@@ -18,19 +30,22 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Database Setup
 
-## Learn More
+To set up the database, run the following commands:
 
-To learn more about Next.js, take a look at the following resources:
+npx prisma migrate dev --name init
+npx ts-node --project tsconfig.seed.json src/seed.ts
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## User list
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+email: 'john.doe@example.com'
+password: 'password123'
 
-## Deploy on Vercel
+email: 'jane.smith@example.com'
+password: 'password456'
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+email: 'alice.johnson@example.com'
+password: 'password789'
+```
