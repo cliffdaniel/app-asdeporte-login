@@ -51,3 +51,15 @@ password: 'password456'
 email: 'alice.johnson@example.com'
 password: 'password789'
 ```
+
+## Protected routes
+
+```bash
+/dashboard
+```
+
+## Login route
+
+```bash
+/login
+```
